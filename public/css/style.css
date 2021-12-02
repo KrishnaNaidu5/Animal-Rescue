@@ -4255,4 +4255,9 @@ form.contact-form button.thm-btn {
     padding: 50px;
     text-align: left;
   }
+  .our-mission {
+    flex: 50%;
+    color: white;
+    font-size: 35px;
+  }
 /*# sourceMappingURL=style.css.map */
