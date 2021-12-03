@@ -185,8 +185,8 @@ a:active {
 .sec-title h3 {
   margin: 0;
   font-size: 40px;
-  font-weight: 600;
-  color: #171717;
+  font-weight: bold;
+  color: maroon;
 }
 .sec-title p {
   font-size: 16px;
@@ -2054,6 +2054,7 @@ background: linear-gradient(135deg, #0129fe 0%,#010836 48%,#0129fe 100%); /* W3C
   position: relative;
   overflow: hidden;
   cursor: pointer;
+  border-radius: 300px;
 }
 .team-style-one .single-team-style-one .img-box:after {
   content: '';
@@ -4260,4 +4261,147 @@ form.contact-form button.thm-btn {
     color: white;
     font-size: 35px;
   }
+  .flex-container1 {
+    display: flex;
+    justify-content: space-between;
+  }
+  .bg-container9{
+    background-color: yellow;
+  }
+  
+  .flex-container1 > div {
+    background-color: maroon;
+    width: 25vw;
+    border-radius: 15px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    padding: 5px;
+    box-shadow: 5px 5px #888888;
+  }
+  .pool-mining{
+    padding: 50px;
+    margin: 30px;
+  }
+  .invite{
+    color: yellow;
+    font-size: 16px;
+  }
+  .send-invite{
+    color: white;
+  }
+  .mine{
+    text-align: center;
+    color: maroon;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+  }
+  .containers{
+    background-color: lightyellow;
+  }
+  .flex-container2 {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    
+  }
+  .flex-container5 {
+    display: flex;
+    flex-direction: row;
+    background-color: maroon;
+    justify-content: space-between;
+  }
+  
+  .flex-container5 > div {
+    background-color: #f1f1f1;
+    width: 40vw;
+    margin: 25px;
+    text-align: center;
+    line-height: 75px;
+    font-size: 30px;
+    height: 35vh;
+    box-shadow: 5px 5px 5px 5px pink;
+    
+  }
+  .bg-containers{
+    background-color: maroon;
+    text-align: center;
+    font-size: 40px;
+    color: white;
+    padding: 15px;
+    margin: 10px;
+  }
+  .bg-container5{
+    background-color: maroon;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .buy{
+    font-size: 40px;
+    text-align: left;
+    padding: 15px;
+    margin: 10px;
+    padding-top: 20px;
+    margin-top: 20px;
+    color: white;
+  }
+  .shiba{
+    font-size: 20px;
+    text-align: left;
+    padding: 15px;
+    color: white;
+    margin: 10px;
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+.column8 {
+  float: none;
+  width: 55%;
+  padding: 15px;
+  margin: 20px;
+}
+
+/* Clearfix (clear floats) */
+.row8::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.bg-container6{
+  background-color: white;
+  padding: 30px;
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: bold;
+}
+.Donations{
+  color: maroon;
+  font-size: 40px;
+  text-align: left;
+  padding: 15px;
+  margin: 10px;
+  padding-top: 20px;
+  margin-top: 20px;
+}
+.Details{
+  color: black;
+  padding: 15px;
+  margin: 10px;
+}
+.bg-container8{
+  background-color: lightgreen;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  margin: 5px;
+}
+.edit{
+  padding: 20px;
+  margin: 15px;
+}
 /*# sourceMappingURL=style.css.map */
