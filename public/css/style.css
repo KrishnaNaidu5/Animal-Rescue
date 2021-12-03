@@ -4079,6 +4079,7 @@ form.contact-form button.thm-btn {
 }
 .bg-container{
   background-color: maroon;
+  height: 100vh;
 }
 
 * {
@@ -4275,7 +4276,7 @@ form.contact-form button.thm-btn {
     border-radius: 15px;
     margin: 10px;
     text-align: center;
-    font-size: 30px;
+    font-size: 22px;
     padding: 5px;
     box-shadow: 5px 5px #888888;
   }
@@ -4285,10 +4286,11 @@ form.contact-form button.thm-btn {
   }
   .invite{
     color: yellow;
-    font-size: 16px;
+    font-size: 20px;
   }
   .send-invite{
     color: white;
+    font-size: 22px;
   }
   .mine{
     text-align: center;
@@ -4296,6 +4298,7 @@ form.contact-form button.thm-btn {
     font-size: 30px;
     font-weight: bold;
     padding: 20px;
+    font-family: normal;
   }
   .containers{
     background-color: lightyellow;
@@ -4403,5 +4406,23 @@ form.contact-form button.thm-btn {
 .edit{
   padding: 20px;
   margin: 15px;
+}
+.img-sty{
+  border-radius: 50px;
+  margin: 100px;
+}
+.rescue{
+  width: 45vw;
+  height: 100vh;
+  padding: 25px;
+  padding-left: 0px;
+  padding-top: 40px;
+  background-color: maroon;
+  padding-bottom: 40px;
+}
+.flex-left{
+  color: white;
+  font-size: 16px;
+  
 }
 /*# sourceMappingURL=style.css.map */
