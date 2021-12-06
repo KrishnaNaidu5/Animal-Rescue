@@ -1,460 +1,796 @@
-  <div class="page-header">
-    <h3 class="page-title">
-      <span class="page-title-icon bg-gradient-primary text-white mr-2">
-        <i class="mdi mdi-home"></i>
-      </span> Buy Coin
-    </h3>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animal Rescue</title>
+    <!-- mobile responsive meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=1.0, minimum-scale=1.0, maximum-scale=1.0"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="user_assets/img/"/>
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="stylesheet" href="user_assets/css/style.css" />
+    <link rel="stylesheet" href="user_assets/css/responsive.css" />
 
-  </div>
-  <section class="dash-inner-sec token for-token-page">
-    <div class="card-content for-equal-only">
-      <div class="row">
-        <div class="col-lg-6 col-md-12">
-
-          <div class=" buy-upper card pull-up buy-token mb-3">
-            <div class="card-content collapse show">
-              <div class="card-body">
-                <div class="bitcoin-flex-box">
-                  <img src="img/eth-icon.png" alt="Eth Icon" id="icon">
-                  <div class="center-box">
-                    <h6>Coin</h6>
-                    <div class="form-group m-0">
-                      <select class="form-control"
-                        style="box-shadow: none;outline: none;border: 1px solid #ddd !important;background-color: transparent !important;"
-                        onchange="changeCurrency(this.value);">
-                        <option value="eth">ETH</option>
-                        <option value="bnb">BNB</option>
-                        <option value="usdt">USDT</option>
-                        <option value="btc">BTC</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="row d-flex align-items-center"
-                  action="https://pixinvent.com/demo/crypto-ico-admin/html/ltr/vertical-menu/buy-ico.html">
-                  <div class="col-lg-2 col-md-3 col-12">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card steps-card text-center">
-            <div class="card-content collapse show">
-              <div class="card-body">
-                <div class="font-small-3 token-balance clearfix">
-                  <h6 class="hbg my-2 text-left">5 step guide</h6>
-                  <ol class="text-left four-step-list">
-                    <li>Calculate how much $Carbon Coins you want to buy.</li>
-                    <li>Copy/Scan the displayed address</li>
-                    <li>Send your ETH/BNB/BTC/USDT to that address. You may send it right from your exchange.</li>
-                    <li>Upon transaction confirmation, please fill in your transaction details (Bitcoin Wallet address,
-                      Ethereum Wallet address and transaction ID) in the form. We need Ethereum wallet address so that
-                      we can transfer $Carbon coins to you.</li>
-                    <li>Our team will verify the transaction and will send your $Carbon Coins tokens within 48 hours which will
-                      be reflected in your wallet.</li>
-                  </ol>
-
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <div class="col-lg-6 col-md-12 col-12">
-          <div class="dashboard-box shadow-box side-box-by-now ">
-            <form action="/ETH" method="POST" id="ethereum" enctype="multipart/form-data" onsubmit="show_alert()">
-
-              <div class="form-body">
-                <div class="row">
-                  <div class="col-12 col-lg-5 col-md-12">
-                    <div class="form-group row align-items-center">
-                      <label class="col-4 pr-0 mb-0 label-control" for="projectinput1">BUY<span
-                          style="color:red;">*</span></label>
-                      <fieldset class="col-8 pl-0">
-                        <div class="input-group">
-                          <input type="text" class="form-control" data-rule-number="true" name="usd" id="usd"
-                            data-rule-min="1" data-msg-min="You have to buy minimum 1 $CBCN." data-rule-required="true"
-                            data-msg-required="Please enter value in digit." aria-describedby="basic-addon4"
-                            required>
-                          <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon4">USD</span>
-                          </div>
-                        </div>
-                        <input type="hidden" name="currencyValue" id="currencyValue">
-                      </fieldset>
-                      <span for="rowan" class="error_validate" id="rowan_err"></span>
-                    </div>
-                  </div>
-                  <div class="col-12 col-lg-2 col-md-12">
-                    <fieldset class="col-12">
-                      <p class="mb-0 text-center font-medium-5">=</p>
-                    </fieldset>
-                  </div>
-                  <div class="col-12 col-lg-5 col-md-12">
-                    <div class="form-group row">
-                      <fieldset class="col-12">
-                        <div class="input-group">
-                          <input class="form-control" id="eth" aria-describedby="basic-addon4" value="" readonly=""
-                            name="eth" type="text">
-                          <div class="input-group-append">
-                            <span class="input-group-text" id="basic-addon-curr"></span>
-                          </div>
-                        </div>
-                      </fieldset>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             
-              <p  class="font-italic value-coin-line mx-1 mb-2">1CBCN = 0.0000000065$</p>  
-
-              <p class="font-italic value-coin-line mx-1 mb-2"id="total_CBCN"> </p>
-              <p class="font-italic value-coin-line mx-1 mb-2"id="total_amount"> </p>
-
-
-              <!-- <p class="font-italic value-coin-line mt-3 mx-1 mb-2"> <b>1 TOKEN = 23 TRX</b></p> -->
-              <div class="col-md-12 p-0">
-                <div id="tran_wallet">
-
-                  <!-- <div class="form-group">
-                      <div class="row">
-                          <label class="control-label col-sm-5">Sender's Bitcoin Wallet Address<span style="color:red;">*</span></label>
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control secure" id="bit_wallet_address" name="bit_wallet_address" data-rule-required="true" data-msg-required="Please enter Wallet Address." >
-                      </div>
-                      </div>
-                    </div> -->
-                  <div class="form-group create-wallet-block">
-                    <div class="row align-items-center">
-                      <label class="control-label col-sm-5 text-left">CBCN Wallet Address<span
-                          style="color:red;">*</span></label>
-                      <!-- <div class="col-sm-6">
-                        <input type="text" class="form-control secure" value="0x0296b77A92Ee270b8a0b157Cc744E9f102af6C51" id="eth_wallet_address" name="eth_wallet_address" data-rule-required="true" data-msg-required="Please enter Ethereum Wallet Address." readonly="" >
-                        
-                        <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
-                      </div> -->
-                      <div class="input-group col-sm-7 input-dash copy-id-dash">
-                        <input type="text" class="form-control secure"
-                          value="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d" id="eth_wallet_address" name="eth_wallet_address" data-rule-required="true"
-                          data-msg-required="Please enter Ethereum Wallet Address." readonly="">
-                        <a onclick="myFunction()" href="javascript:void(0);"><i class="fa fa-copy"></i></a>
-
-                      </div>
-
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="row">
-                      <label class="control-label col-sm-5">Reference/Transaction ID</label>
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control secure" id="transaction_id" name="transaction_id"
-                          required>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <label class="control-label col-sm-5">User Wallet Address</label>
-                      <div class="col-sm-7">
-                        <input type="text" class="form-control secure"  id="user_wallet_address" name="user_wallet_address" data-rule-required="true" data-msg-required="Please enter Ethereum Wallet Address." readonly="" >
-                        <!-- <input type="text" class="form-control secure" id="user_wallet_address" name="user_wallet_address" required> -->
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="row">
-                      <label class="control-label col-sm-5">Upload Screenshot</label>
-                      <div class="col-sm-7">
-                        <div class="input-group file-input">
-                          <input type="text" class="form-control file-upload-text" disabled=""
-                            placeholder="select a file...">
-                          <button type="button" class="btn btn-common light-green file-upload-btn upload-btn p-0">
-                            Upload
-                            <input type="file" class="file-upload" data-rule-required="true"
-                              data-msg-required="Please upload Payment Screenshot" name="transactionImage"
-                              id="file-input-1" style="width: 0;" placeholder="No File Selected" required>
-                            <span class="input-group-btn">
-                            </span></button>
-
-                        </div>
-
-                      </div>
-                    </div>
-                  </div>
-
-                  <!--  <div class="form-group" >
-                          <div class="form-check form-check-flat form-check-primary">
-                          <label class="form-check-label">
-                            <input type="checkbox" class="form-check-input"> If did not remember and you have a screen shot of transaction id and wallet address then click here.</label>
-                        </div>
-                      </div> -->
-                </div>
-
-                <div class="form-group mt-4">
-
-                  <div class="checkbox">
-                    <label>
-                      <input type="checkbox" data-rule-required="true"
-                      data-msg-required="Please Accept Terms & Conditions" value="" required>
-                      <span class="cr"><i class="fa fa-check cr-icon"></i></span>
-                      I agree with terms and conditions of $CBCN.
-                    </label>
-                  </div>
-                </div>
-
-                <input type="hidden" name="_csrf" value="" />
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="btn-block">
-                        <button type="submit" class="btn btn-common light-green buyNow">Submit</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-              </div>
-            </form>
-          </div>
-
-
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-<style>
-  span#basic-addon-curr {
-    text-transform: uppercase;
-}
-.nice-select.open .list:hover {
-    width: 100%;
-    background: #000 !important;
-}
-</style>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="vendors/js/vendor.bundle.base.js"></script>
-<!-- endinject -->
-<!-- Plugin js for this page -->
-<script src="vendors/chart.js/Chart.min.js"></script>
-<!-- End plugin js for this page -->
-<!-- inject:js -->
-<script src="js/off-canvas.js"></script>
-<script src="js/hoverable-collapse.js"></script>
-<script src="js/misc.js"></script>
-<!-- endinject -->
-<!-- Custom js for this page -->
-<script src="js/dashboard.js"></script>
-<script src="js/todolist.js"></script>
-<!-- End custom js for this page -->
-<!-- Custom js for this page -->
-<script src="js/file-upload.js"></script>
-
-<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
-<script src="js/select2.full.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-
-    <script>
-      function initializeFileUploads() {
-        $('.file-upload').change(function () {
-          var file = $(this).val();
-
-          var parts = file.split("\\");
-          var lastpart = parts[parts.length - 1]
-          //alert("file"+lastpart);
-          $(this).closest('.input-group').find('.file-upload-text').val(lastpart);
-        });
-        $('.file-upload-btn').click(function () {
-          $(this).find('.file-upload').trigger('click');
-        });
-        $('.file-upload').click(function (e) {
-          e.stopPropagation();
-        });
+    <style>
+      .buy-coin-sec .coin-select-box {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
       }
+      .buy-coin-sec .coin-select-box .img-coin {
+        height: 55px;
+        margin-right: 30px;
+      }
+      .buy-coin-sec .select-coin-box {
+        width: 80%;
+      }
+      .buy-coin-sec .select-coin-box .btn-group.bootstrap-select {
+        margin: 0 !important;
+      }
+      .buy-coin-sec .shadow-box {
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+      .buy-coin-sec .step-box-list h6 {
+        font-size: 20px;
+      }
+      .buy-coin-sec .step-box-list {
+        font-size: 14px;
+      }
+      .buy-coin-sec .step-box-list ol {
+        padding-left: 15px;
+      }
+      .buy-coin-sec .align-items-center {
+        align-items: center;
+      }
+      .buy-coin-sec .input-group.file-input {
+        display: flex;
+        align-items: center;
+      }
+      .buy-coin-sec .input-group.file-input .file-upload-btn {
+        position: relative;
+        height: auto;
+        border-radius: 0;
+        background-color: #7bbe3f;
+        color: black;
+        padding: 10px 30px;
+      }
+      .buy-coin-sec .input-group.file-input .file-upload-btn .file-upload {
+        position: absolute !important;
+        padding: 0;
+        margin: 0;
+        width: 100% !important;
+        height: 100% !important;
+        left: 0;
+        top: 0;
+        opacity: 0;
+      }
+      .buy-coin-sec form.contact-form .bootstrap-select > .dropdown-toggle {
+        padding: 10px 20px !important;
+      }
+      .buy-coin-sec form.contact-form input,
+      form.contact-form textarea {
+        height: auto !important;
+        padding: 10px 20px !important;
+        line-height: 20px;
+        margin-bottom: 15px;
+      }
+      .buy-coin-sec .form-control.file-upload-text {
+        border: none;
+        outline: none;
+        border-radius: 0;
+        box-shadow: none;
+        margin: 0;
+      }
+      .buy-coin-sec .checkbox input[type="checkbox"],
+      .buy-coin-sec .checkbox-inline input[type="checkbox"] {
+        position: absolute;
+        margin-top: 4px\9;
+        width: 25px;
+        height: 25px !important;
+        margin: 0;
+        top: 2px;
+        left: 0;
+      }
+      .buy-coin-sec .btn-block {
+        margin-top: 45px;
+      }
+      .buy-coin-sec {
+        padding: 40px 0 !important;
+      }
+      .buy-coin-sec .checkbox {
+        margin: 30px 0 10px;
+      }
+      .buy-coin-sec .checkbox a {
+        color: #7bbe3f;
+      }
+
+      @media (max-width: 1300px) {
+        .buy-coin-sec .thm-container {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body class="active-preloader-ovh">
+    <div class="preloader">
+      <div class="spinner"></div></div>
+
+    <header class="header header-home-one">
+      <nav class="navbar navbar-default header-navigation stricky">
+        <div class="thm-container clearfix">
+          <div class="navbar-header">
+            <button
+              type="button"
+              class="navbar-toggle collapsed bitmex-icon-menu"
+              data-toggle="collapse"
+              data-target=".main-navigation"
+              aria-expanded="false"
+            ></button>
+            <a class="navbar-brand" href="/">
+              <img src="img/Animal-Rescue-Logo.jpeg" style="height: 85px"/>
+            </a>
+          </div>
+
+          <div
+            class="collapse navbar-collapse main-navigation mainmenu"
+            id="main-nav-bar"
+          >
+            <ul class="nav navbar-nav navigation-box navbar-right">
+              <li><a class="active" href="#">Ecosystem</a></li>
+              <li><a href="">Roadmap</a></li>
+              <li><a href="/buy-coin">Buy Stray</a></li>
+              <li><a href="">Whitepaper</a></li>
+              <li><a href="">Audit</a></li>
+            </ul>
+          </div>
+          <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+      </nav>
+    </header>
+    <!-- /.header -->
+
+    <section class="contact-page-wrapper sec-pad buy-coin-sec">
+      <div class="thm-container">
+        <form class="contact-form row">
+          <div class="row contact-form">
+            <div class="col-md-6">
+              <div class="coin-select-box mb-3">
+                <div>
+                  <img
+                    src="user_assets/img/eth-icon.png"
+                    class="img-coin"
+                    alt="Bitcoin Icon"
+                  />
+                </div>
+                <div class="select-coin-box">
+                  <label>Animal Rescue Coin</label>
+                  <select name="topic" class="selectpicker"
+                    select class="" id="currencyTypes"
+                  style="box-shadow: none;outline: none;border: 1px solid #ddd !important;background-color: transparent !important;"
+                  onchange="myChangeFunction(bidding),changeCurrency(this.value)" onchange="myChangeFunction()">
+                  <!-- onchange="changeCurrency(this.value) change to myChangeFunction(bidding); -->
+
+                  <!-- <option value="eth" id="bidding" onchange="myChangeFunction(bidding)"
+                        placeholder="TABOO">
+                        <option value="bnb" id="bidding" onchange="myChangeFunction(bidding)"
+                        placeholder="TABOO">
+                        <option value="usd" id="bidding" onchange="myChangeFunction(bidding)"
+                        placeholder="TABOO"> -->
+
+                  <option value="eth">eth</option>
+                  <option value="bnb">bnb</option>
+                  <option value="usd">usdt</option>
+                  </select>
+                  </select>
+                </div>
+              </div>
+              <div class="shadow-box step-box-list">
+                <h6 class="hbg my-2 text-left">5 step guide</h6>
+                <ol class="text-left four-step-list">
+                  <li>Calculate how much Animal Rescue you want to buy.</li>
+                  <li>Copy/Scan the displayed address</li>
+                  <li>
+                    Send your ETH to that address. You may send it right from
+                    your exchange.
+                  </li>
+                  <li>
+                    Upon transaction confirmation, please check your transaction
+                    details (Animal Rescue Wallet address, Ethereum Wallet address and
+                    transaction ID).
+                  </li>
+                  <li>
+                    Our team will verify the transaction and will send your
+                    Animal Rescue within 48 hours which will be reflected in
+                    your wallet.
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="shadow-box">
+                <label>Buy*</label>
+                <div class="row align-items-center">
+                  <div class="col-md-5">
+                    <input type="text" id="bidding" onchange="myChangeFunction(bidding)" placeholder="USD" />
+                  </div>
+                  <div class="col-md-2 text-center">
+                    =
+                </div>
+                <div class="col-md-1">
+                    <input type="text" id="decimal" placeholder="=" readonly>
+                </div>
+                <div class="col-md-5">
+                    <input type="text" id="ethbidding" placeholder="eth" readonly>
+            </div>
+                  
+                </div>
+                <div>
+                  <!-- <h4><b>1 USD = 23 TRX</b></h4> -->
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div>
+                              <label>Client Wallet Address*</label>
+                              <input type="text" class="form-control secure" id="eth_wallet_address"
+                                  name="eth_wallet_address" data-rule-required="true"
+                                  data-msg-required="Please enter Ethereum Wallet Address." readonly="">
+                          </div>
+                      </div>
+                      <!-- <div class="col-md-6">
+                          <div>
+                              <label>Reference/Transaction ID</label>
+                              <input type="text" placeholder="">
+                          </div>
+                      </div> -->
+                  </div>
+    
+                  <div class="row">
+                      <div class="col-md-12">
+                          <div>
+                              <label>Contract Address*</label>
+                              <input type="text" class="form-control secure" id="contract_address"
+                                  name="contract_address" data-rule-required="true"
+                                  data-msg-required="Please enter Ethereum Wallet Address." readonly="">
+                          </div>
+                      </div>
+                      <!-- <div class="col-md-6">
+                          <div>
+                              <label>Reference/Transaction ID</label>
+                              <input type="text" placeholder="">
+                          </div>
+                      </div> -->
+                  </div>
+    
+                  <!-- <div>
+                      <label>Upload Screenshot</label>
+                      <div class="input-group file-input">
+                          <input type="text" class="form-control file-upload-text" disabled=""
+                              placeholder="select a file...">
+                          <button type="button"
+                              class="btn btn-common light-green file-upload-btn upload-btn p-0">
+                              Upload
+                              <input type="file" class="file-upload" data-rule-required="true"
+                                  data-msg-required="Please upload Payment Screenshot"
+                                  name="transactionImage" id="file-input-1" style="width: 0;"
+                                  placeholder="No File Selected">
+                              <span class="input-group-btn">
+                              </span></button>
+    
+                      </div>
+                  </div> -->
+                  <div class="checkbox">
+                      <label>
+                          <input type="checkbox" value="">
+    
+                          I agree with <a href="">terms and conditions</a> of Carbon.
+                      </label>
+                  </div>
+                  <div class="btn-block">
+                   <!--  <button type="submit" class="thm-btn yellow-bg-hvr">Submit</button> 
+                    <button class="enableEthereumButton btn">Enable Ethereum</button> 
+                     <button class="enableEthereumButton sendEthButton btn thm-btn yellow-bg-hvr">Send
+                        Eth</button> -->
+                     <button class="btn thm-btn yellow-bg-hvr" onclick="BuyEth()">Buy Eth</button>
+                    </div>
+              </div>
+              </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+    <div class="footer-top page-section" id="contact-us">
+      <div class="thm-container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="single-footer-top">
+              <p>
+                <i class="bitmex-icon-envelope"></i
+                ><span class="primary">Email: </span>sales@animalrescue.io ,
+                support@animalrescue.io
+              </p>
+            </div>
+            <!-- /.single-footer-top -->
+          </div>
+          <!-- /.col-md-4 -->
+          <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12">
+            <div class="single-footer-top">
+              <p>
+                <i class="bitmex-icon-phone-call"></i
+                ><span>Call: </span>+61415898818
+              </p>
+            </div>
+            <!-- /.single-footer-top -->
+          </div>
+          <!-- /.col-md-4 -->
+          <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+            <div class="single-footer-top">
+              <p>
+                <i class="bitmex-icon-placeholder"></i
+                ><span>Web: </span>www.animalrescue.io
+              </p>
+            </div>
+            <!-- /.single-footer-top -->
+          </div>
+          <!-- /.col-md-4 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.thm-container -->
+    </div>
+    <!-- /.footer-top -->
+
+    <footer class="site-footer">
+      <div class="thm-container">
+        <div class="row masonary-layout">
+          <div
+            class="col-md-8 col-sm-8 col-xs-12 col-md-offset-2 col-sm-offset-2"
+          >
+            <div class="single-footer-widget text-center">
+              <div class="title">
+                <h3>Subscribe</h3>
+              </div>
+              <!-- /.title -->
+              <form action="inc/mailchimp/subscribe.php" class="subscribe-form">
+                <input type="text" placeholder="Email Address" />
+                <button
+                  type="submit"
+                  class="fa fa-telegram"
+                  style="font-size: 20px"
+                ></button>
+              </form>
+              <!-- /.subscribe-form -->
+              <ul class="links-list">
+                <li><a class="active" href="#">Ecosystem</a></li>
+                <li><a href="">Roadmap</a></li>
+                <li><a href="/buy-coin">Buy Stray</a></li>
+                <li><a href="">Whitepaper</a></li>
+                <li><a href="">Audit</a></li>
+              </ul>
+            </div>
+            <!-- /.single-footer-widget -->
+          </div>
+          <!-- /.col-md-3 -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.thm-container -->
+    </footer>
+    <!-- /.site-footer -->
+
+    <div class="footer-bottom">
+      <div class="thm-container clearfix">
+        <div class="pull-left copy-text">
+          <p>&copy; 2021 Carboncoin.com All copy rights are reserved.</p>
+        </div>
+        <!-- /.pull-left copy-text -->
+        <div class="social pull-right">
+          <a href="#" class="fa fa-twitter"></a
+          ><!--
+                --><a href="#" class="fa fa-facebook"></a
+          ><!--
+                --><a href="#" class="fa fa-youtube-play"></a
+          ><!--
+                --><a href="#" class="fa fa-pinterest"></a>
+        </div>
+        <!-- /.social -->
+      </div>
+      <!-- /.thm-container -->
+    </div>
+    <!-- /.footer-bottom -->
+
+    <section class="hidden-sidebar side-navigation">
+      <a href="#" class="close-button side-navigation-close-btn fa fa-times"></a
+      ><!-- /.close-button -->
+      <div class="sidebar-content">
+        <div class="social">
+          <a href="#" class="fa fa-twitter"></a
+          ><!--
+                --><a href="#" class="fa fa-facebook"></a
+          ><!--
+                --><a href="#" class="fa fa-youtube-play"></a
+          ><!--
+                --><a href="#" class="fa fa-pinterest"></a>
+        </div>
+        <!-- /.social -->
+      </div>
+      <!-- /.sidebar-content -->
+    </section>
+    <!-- /.hidden-sidebar -->
+
+    <div class="scroll-to-top scroll-to-target" data-target="html">
+      <i class="fa fa-angle-up"></i>
+    </div>
+
+    <script src="user_assets/js/jquery.js"></script>
+
+    <script src="user_assets/js/bootstrap.min.js"></script>
+    <script src="user_assets/js/bootstrap-select.min.js"></script>
+    <script src="user_assets/js/jquery.validate.min.js"></script>
+    <script src="user_assets/js/owl.carousel.min.js"></script>
+    <script src="user_assets/js/isotope.js"></script>
+    <script src="user_assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="user_assets/js/waypoints.min.js"></script>
+    <script src="user_assets/js/jquery.counterup.min.js"></script>
+    <script src="user_assets/js/wow.min.js"></script>
+    <script src="user_assets/js/jquery.easing.min.js"></script>
+    <script src="user_assets/js/particles.min.js"></script>
+    <script src="user_assets/js/particles-config.js"></script>
+    <script src="user_assets/js/Chart.min.js"></script>
+    <script src="user_assets/js/chart-config.js"></script>
+    <script src="user_assets/js/custom.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('ul.navigation-box li a').click(function () {
+              $('ul.navigation-box li a').removeClass("active");
+              $(this).addClass("active");
+          });
+      });
+  </script>
+
+  <script>
+      function initializeFileUploads() {
+          $('.file-upload').change(function () {
+              var file = $(this).val();
+
+              var parts = file.split("\\");
+              var lastpart = parts[parts.length - 1]
+              //alert("file"+lastpart);
+              $(this).closest('.input-group').find('.file-upload-text').val(lastpart);
+          });
+          $('.file-upload-btn').click(function () {
+              $(this).find('.file-upload').trigger('click');
+          });
+          $('.file-upload').click(function (e) {
+              e.stopPropagation();
+          });
+      }
+
 
 
       // On document load:
       $(function () {
-        initializeFileUploads();
+          initializeFileUploads();
       });
-    </script>
-    <script>
-      function multiby(val, nem) {
-        let rate = $("#currencyValue").val();
-        // alert(rate);
-        let n = parseFloat(val) * parseFloat(rate);
+  </script>
 
-        let total=parseFloat(val)*153846153.846;
+  <!-- Function for giving currency value -->
+  <script>
+      function myChangeFunction(bidding) {
+          let currency = document.getElementById("currencyTypes").value;
 
-        let amount=total*rate;
+          if (currency == 'cardano' || currency == 'solana' || currency == 'dogecoin') {
+              axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=taboo-token&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true%27`)
+                  .then(response => {
+                      const price = response.data['taboo-token'].usd
 
-        document.getElementById("eth").value = n;
-        document.getElementById("total_CBCN").innerHTML="Total CBCN you will get="+total.toLocaleString();
-       // document.getElementById("total_amount").innerHTML=amount;
+                      axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=${currency}&vs_currencies=usd&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true%27`)
+                          .then(response => {
+                              var ethbiddings = document.getElementById('ethbidding');
+                              const eth = bidding.value / ((response.data[`${currency}`].usd / price))
+                              ethbiddings.value = oneTaboo;
+                          })
+                  })
 
-        //$("#total_CBCN").val(total);
+          } else {
+              axios.get(`https://api.coingecko.com/api/v3/simple/price?ids=taboo-token&vs_currencies=${currency}&include_market_cap=true&include_24hr_vol=true&include_24hr_change=true&include_last_updated_at=true%27`)
+                  .then(response => {
+                      // console.log(response.data['taboo-token'])
 
-        //$("#amount_total").val(amount);
+                      var ethbiddings = document.getElementById('ethbidding');
+                      const price = response.data['taboo-token'][`${currency}`];
+                      ethbiddings.value = bidding.value * price;
+                      // console.log(response.data['taboo-token'][`${currency}`])
+                  })
+          }
+      }
+  </script>
 
-        console.log(total);
-        console.log(amount);
+  <script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/web3modal"></script>
+  <script type="text/javascript" src="https://unpkg.com/evm-chains/lib/index.js"></script>
+  <script type="text/javascript" src="https://unpkg.com/@walletconnect/web3-provider"></script>
+  <script>
+      function decimalToHexString(number) {
+          if (number < 0) {
+              number = 0xFFFFFFFF + number + 1;
+          }
+          return number.toString(16).toUpperCase();
+      }
 
+      const ethereumButton = document.querySelector('.enableEthereumButton');
+      const sendEthButton = document.querySelector('.sendEthButton');
+
+      let accounts = [];
+
+      //Sending Ethereum to an address
+      sendEthButton.addEventListener('click', () => {
+          getAccount();
+
+          async function getAccount() {
+              accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+          }
+          var bid = document.getElementById("bidding").value;
+          console.log(bid);
+          ethereum
+              .request({
+                  method: 'eth_sendTransaction',
+                  params: [
+                      {
+                          from: accounts[0],
+                          to: '0xd5f7E7d1839A7DAB87c9153556e8FBC949254D12',
+                          value: decimalToHexString(bid * 10 ** 18),
+                          gasPrice: '0x09184e72a000',
+                          gas: '0x21000',
+                      },
+                  ],
+              })
+              .then((txHash) => console.log(txHash))
+              .catch((error) => console.error);
+      });
+
+
+  </script>
+
+  <script>
+      let currencyTypeGlobal;
+      window.onload = function () {
+          changeCurrency("eth");
       };
-    </script>
+      function changeCurrency(currencyType) {
+          // alert(currencyType);
+          currencyTypeGlobal = currencyType
+          if (currencyType == "eth") {
+              let wallet_address = "0xd5f7E7d1839A7DAB87c9153556e8FBC949254D12";
+              document.getElementById("eth_wallet_address").value = wallet_address;
+             let contract_address = "0x00000000219ab540356cbb839cbe05303d7705fa";
+              document.getElementById("contract_address").value = contract_address;
+              let token = "ETH";
+              document.getElementById("ethbidding").placeholder = token;
+              let decimal = 1000000000000000000;
+              document.getElementById("decimal").value = decimal;
+          }
+          else if (currencyType == "bnb") {
+              let wallet_address = "0xd5f7E7d1839A7DAB87c9153556e8FBC949254D12";
+              document.getElementById("eth_wallet_address").value = wallet_address;
+              let contract_address = "0xB8c77482e45F1F44dE1745F52C74426C631bDD52";
+              document.getElementById("contract_address").value = contract_address;
+              let token = "BNB";
+              document.getElementById("ethbidding").placeholder = token;
+              let decimal = 1000000000000000000;
+              document.getElementById("decimal").value = decimal;
+          }
+          else if (currencyType == "usdt") {
+              let wallet_address = "0xd5f7E7d1839A7DAB87c9153556e8FBC949254D12";
+              document.getElementById("eth_wallet_address").value = wallet_address;
+              let contract_address = "0x03f7cef050aac29954a97334c00920aa8919dc37";
+              document.getElementById("contract_address").value = contract_address;
+              let token = "USDT";
+              document.getElementById("ethbidding").placeholder = token;
+              let decimal = 1000000;
+              document.getElementById("decimal").value = decimal;
+          }
+          else {
+              let wallet_address = "0xd5f7E7d1839A7DAB87c9153556e8FBC949254D12";
+              document.getElementById("eth_wallet_address").value = wallet_address;
+              let contract_address = "0xdac17f958d2ee523a2206206994597c13d831ec7";
+              document.getElementById("contract_address").value = contract_address;
+              let token = "ETH";
+              document.getElementById("ethbidding").placeholder = token;
+              let decimal = 1000000000000000000;
+              document.getElementById("decimal").value = decimal;
+          }
 
-    <script type="text/javascript">
-      function myFunction() {
-        var copyText = document.getElementById("eth_wallet_address");
-        if ($('#eth_wallet_address').val() != "") {
-          copyText.select();
-          document.execCommand("copy");
-          alert("wallet address is copied.");
-        }
       }
-    </script>
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.24.0/axios.min.js"
+      integrity="sha512-u9akINsQsAkG9xjc1cnGF4zw5TFDwkxuc9vUp5dltDWYCSmyd0meygbvgXrlc/z7/o4a19Fb5V0OUE58J7dcyw=="
+      crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <script>
-      function show_alert() {
-        if (!confirm("Thankyou!, Request has been sent successfully and you will get the CBCN in your account after your payment verification. Return to Dashboard")) {
-          return false;
-        }
-        this.form.submit();
+
+      
+      
+
+  <script>
+
+      // Unpkg imports
+      const Web3Modal = window.Web3Modal.default;
+      const WalletConnectProvider = window.WalletConnectProvider.default;
+      const EvmChains = window.EvmChains;
+      const Fortmatic = window.Fortmatic;
+
+      // Web3modal instance
+      let web3Modal
+
+      // Chosen wallet provider given by the dialog window
+      let provider;
+
+
+      // Address of the selected account
+      let selectedAccount;
+
+
+      /**
+       * Setup the orchestra
+       */
+      function init() {
+
+          console.log("Initializing example");
+          console.log("WalletConnectProvider is", WalletConnectProvider);
+          // console.log("Fortmatic is", Fortmatic);
+
+          // Tell Web3modal what providers we have available.
+          // Built-in web browser provider (only one can exist as a time)
+          // like MetaMask, Brave or Opera is added automatically by Web3modal
+          const providerOptions = {
+              walletconnect: {
+                  package: WalletConnectProvider,
+                  options: {
+                      rpc: {
+                          3: 'https://ropsten.infura.io/v3/dc6e11412ff54869b4bb3ce77550d55a',
+                      },
+                      network: 'ropsten',
+                      chainId: 3,
+                      // infuraId: "bnb1a5cae5d9hp0we9cx9v02n9hvmt94nnuguv0fav",
+                  },
+              },
+          };
+
+          web3Modal = new Web3Modal({
+              cacheProvider: false, // optional
+              providerOptions, // required
+          });
+
       }
-    </script>
 
-<script>
-  window.onload = function() {
-   changeCurrency("eth");
- };
- function changeCurrency(currencyType) {
-   // alert(currencyType);
-   
-   if(currencyType=="eth")
-     {
-          let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
-          document.getElementById("eth_wallet_address").value = wallet_address;
-          let curr_icon = "img/eth-icon.png";
-          document.getElementById("icon").src = curr_icon;
-
-     }
-     else if(currencyType=="btc")
-     {
-         let wallet_address="bc1q5n0ry5k4zxjv4a4cdg6neuvfdyh290gej9fluw";
-          document.getElementById("eth_wallet_address").value = wallet_address;
-          let curr_icon = "assets/images/btc-icon.png";
-          document.getElementById("icon").src = curr_icon;
-     }
-     else if(currencyType=="bnb")
-     {
-        let wallet_address="bnb1xp3pycd9qldu0ndkn2qhzs2ljyr94h20zwgsgt";
-          document.getElementById("eth_wallet_address").value = wallet_address;
-          let curr_icon = "assets/images/bnb-icon.png";
-          document.getElementById("icon").src = curr_icon;
-     }
-      else if(currencyType=="usdt")
-      {
-         let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
-          document.getElementById("eth_wallet_address").value = wallet_address;
-          let curr_icon = "assets/images/usdt-icon.png";
-          document.getElementById("icon").src = curr_icon;
+      function BuyEth() {
+          startBuy()
       }
-      else
-      {
-         let wallet_address="0xcB99B8269a22fa818Fb766B10Af612Fe97CC463d";
-          document.getElementById("eth_wallet_address").value = wallet_address;
-          let curr_icon = "img/eth-icon.png";
-          document.getElementById("icon").src = curr_icon;
+      async function startBuy() {
+
+          // console.log("Opening a dialog", web3Modal);
+          try {
+              provider = await web3Modal.connect();
+          } catch (e) {
+              console.log("Could not get a wallet connection", e);
+              return;
+          }
+
+          // Subscribe to accounts change
+          provider.on("accountsChanged", (accounts) => {
+              BuyToken();
+          });
+
+          // Subscribe to chainId change
+          provider.on("chainChanged", (chainId) => {
+              //BuyContent();
+              BuyToken();
+          });
+
+          await resetAccountDataAll();
       }
-   
-   $.ajax({
-     type: 'post',
-     url: '/currency-value',
-     data: { currencyType: currencyType },
-     success: function (res) {
-       console.log(res);
-       // alert(res.value);
-       $("#currencyValue").val(res.value);
-       document.getElementById("usd").value = 0;
-       document.getElementById("eth").value = 0;
+      init()
 
-        document.getElementById("basic-addon-curr").innerHTML=currencyType;
+      async function resetAccountDataAll() {
+          await BuyToken(provider);
+      }
 
-     }
-   });
+      async function BuyToken() {
+          // Get a Web3 instance for the wallet
+          const web3 = new Web3(provider);
 
- }
+          const chainId = await web3.eth.getChainId();
 
+          const accounts = await web3.eth.getAccounts();
+
+          // console.log("Got accounts", accounts);
+          selectedAccount = accounts[0];
+
+          // Go through all accounts and get their ETH balance
+          const rowResolvers = accounts.map(async (address) => {
+              const balance = await web3.eth.getBalance(address);
+          });
+
+
+          // until data for all accounts is loaded
+          await Promise.all(rowResolvers);
+
+          const contract_address = document.getElementById("contract_address").value;
+
+          // const contract_address = '0x1BE28AdF4ee250CBC9c6c80f9cAaC378085a440F';
+
+          const abi = [{ "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "owner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "spender", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Approval", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "delegator", "type": "address" }, { "indexed": true, "internalType": "address", "name": "fromDelegate", "type": "address" }, { "indexed": true, "internalType": "address", "name": "toDelegate", "type": "address" }], "name": "DelegateChanged", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "delegate", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "previousBalance", "type": "uint256" }, { "indexed": false, "internalType": "uint256", "name": "newBalance", "type": "uint256" }], "name": "DelegateVotesChanged", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "previousOwner", "type": "address" }, { "indexed": true, "internalType": "address", "name": "newOwner", "type": "address" }], "name": "OwnershipTransferred", "type": "event" }, { "anonymous": false, "inputs": [{ "indexed": true, "internalType": "address", "name": "from", "type": "address" }, { "indexed": true, "internalType": "address", "name": "to", "type": "address" }, { "indexed": false, "internalType": "uint256", "name": "value", "type": "uint256" }], "name": "Transfer", "type": "event" }, { "inputs": [], "name": "DELEGATION_TYPEHASH", "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "DOMAIN_TYPEHASH", "outputs": [{ "internalType": "bytes32", "name": "", "type": "bytes32" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "owner", "type": "address" }, { "internalType": "address", "name": "spender", "type": "address" }], "name": "allowance", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "approve", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "balanceOf", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }, { "internalType": "uint32", "name": "", "type": "uint32" }], "name": "checkpoints", "outputs": [{ "internalType": "uint32", "name": "fromBlock", "type": "uint32" }, { "internalType": "uint256", "name": "votes", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "decimals", "outputs": [{ "internalType": "uint8", "name": "", "type": "uint8" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "subtractedValue", "type": "uint256" }], "name": "decreaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "delegatee", "type": "address" }], "name": "delegate", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "delegatee", "type": "address" }, { "internalType": "uint256", "name": "nonce", "type": "uint256" }, { "internalType": "uint256", "name": "expiry", "type": "uint256" }, { "internalType": "uint8", "name": "v", "type": "uint8" }, { "internalType": "bytes32", "name": "r", "type": "bytes32" }, { "internalType": "bytes32", "name": "s", "type": "bytes32" }], "name": "delegateBySig", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "delegator", "type": "address" }], "name": "delegates", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }], "name": "getCurrentVotes", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "account", "type": "address" }, { "internalType": "uint256", "name": "blockNumber", "type": "uint256" }], "name": "getPriorVotes", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "spender", "type": "address" }, { "internalType": "uint256", "name": "addedValue", "type": "uint256" }], "name": "increaseAllowance", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "_to", "type": "address" }, { "internalType": "uint256", "name": "_amount", "type": "uint256" }], "name": "mint", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "name", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "nonces", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "", "type": "address" }], "name": "numCheckpoints", "outputs": [{ "internalType": "uint32", "name": "", "type": "uint32" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "owner", "outputs": [{ "internalType": "address", "name": "", "type": "address" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "renounceOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [], "name": "symbol", "outputs": [{ "internalType": "string", "name": "", "type": "string" }], "stateMutability": "view", "type": "function" }, { "inputs": [], "name": "totalSupply", "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }], "stateMutability": "view", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transfer", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "sender", "type": "address" }, { "internalType": "address", "name": "recipient", "type": "address" }, { "internalType": "uint256", "name": "amount", "type": "uint256" }], "name": "transferFrom", "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }], "stateMutability": "nonpayable", "type": "function" }, { "inputs": [{ "internalType": "address", "name": "newOwner", "type": "address" }], "name": "transferOwnership", "outputs": [], "stateMutability": "nonpayable", "type": "function" }];
+
+          const caddress = web3.utils.toChecksumAddress(contract_address);
+          const Admin_Address = document.getElementById("eth_wallet_address").value;
+          const TokenPrice = document.getElementById('ethbidding').value;
+          const decimal = document.getElementById('decimal').value;
+          const tokenContract = new web3.eth.Contract(abi, caddress);
+          const nonce = await web3.eth.getTransactionCount(selectedAccount, 'latest'); //get latest nonce
+          const from_account = web3.utils.toChecksumAddress(selectedAccount);
+          const Admin = web3.utils.toChecksumAddress('0x711105948F2673b6BcF2D7C7a774e032745f5Fb3');
+          let amount = '0x' + ((TokenPrice * decimal).toString(16))
+          tx = {
+              'from': from_account,
+              'to': caddress,
+              'nonce': nonce,
+              'gas': 5000000,
+              'maxPriorityFeePerGas': 1999999987,
+              'data': tokenContract.methods.transfer(Admin, amount).encodeABI()
+          };
+
+          web3.eth.sendTransaction(tx, function (err, hash) {
+              if (!err) {
+                  console.log(hash);
+
+                  $.ajax({
+                      dataType: "json",
+                      type: 'post',
+                      url: '/users/save-order',
+                      data: {
+                          tx_id: hash,
+                          address: selectedAccount,
+                          // qty: document.getElementById("copies").value,
+                          amount: TokenPrice,
+                          fees: fees,
+                          //         currency: currency,
+                          //         currencyRate: currencyRate
+                      },
+                      success: function (data) {
+
+                          console.log(data);
+
+                          window.location.href = "/transfer-nft?hash=" + hash;
+
+
+                          //location.reload();
+                      }
+                  });
+
+              }
+              else {
+                  console.log(err);
+              }
+          });
+
+
+      }
 
 </script>
+  </body>
+</html>
 
-<script>
-  $(document).ready(function () {
-    $('select').niceSelect();
-  });
-  async function getAccount() {
-    accountsLocal = await ethereum.request({
-      method: 'eth_requestAccounts'
-    });
-    //        console.log(accountsLocal);
-    accounts = accountsLocal[0];
-    $(".hidden_address").val(accounts);
-    //        var obj=document.getElementById('tx_id');
-    //        obj.value=accounts;
-    return accounts;
-  }
-  async function metamaskPopup() {
-    finalprice = document.getElementById("eth").innerText;
-    user_accounts = await getAccount();
-    ethereum.request({
-      method: 'eth_sendTransaction',
-      params: [{
-        from: user_accounts,
-        to: '0xf04f23EBf26c8cE4369a5ac2049D6c283f868C11',
-        value: '0x' + ((finalprice * 1000000000000000000).toString(16)), //'0x09184e72a000',
-        chainId: '0x3' //gasPrice: '0x09184e72a000',
-        //gas: '21000',
-      },],
-    })
-    .then((txHash) => {
-        console.log(txHash);
-        const obj = document.getElementById('transaction_id');
-        obj.value = txHash;
-        $.ajax({
-            dataType: "json",
-            type: 'GET',
-            url: '/store-hash',
-            data: {
-                tx_id: txHash,
-                art_id: art_id,
-                address: user_accounts,
-                qty: document.getElementById("copies").value,
-                amount: finalprice,
-                currency: currency,
-                currencyRate: currencyRate
-            },
-            success: function(data) {
-                swal({
-                    type: 'success',
-                    text: 'Transaction completed successfully.',
-                    timer: 3000,
-                    onOpen: function() {
-                        swal.showLoading()
-                    }
-                }).then(function() {
-                    location.reload();
-                });
-                //               location.reload();
-            }
-        });
-      });
-  }
-  $('body').on("click", ".buyNow", function () {
-    metamaskPopup();
-  });
-</script>
+
+</body>
+
+</html>
